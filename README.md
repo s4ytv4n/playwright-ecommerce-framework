@@ -78,9 +78,8 @@ docker run --rm --ipc=host pw-ecommerce
 
 ## CI
 
-Every push and pull request runs lint, type check, API tests and Chromium UI tests.
-A scheduled daily run catches changes on the live site. The HTML report (with traces, screenshots
-and videos of failures) is published to [GitHub Pages](https://s4ytv4n.github.io/playwright-ecommerce-framework/).
+The GitHub Actions workflow runs lint, type check, API tests and Chromium UI tests on demand.
+The HTML report (with traces, screenshots and videos of failures) is published to [GitHub Pages](https://s4ytv4n.github.io/playwright-ecommerce-framework/).
 
 ## Author
 
