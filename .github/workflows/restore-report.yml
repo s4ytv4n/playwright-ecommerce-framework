@@ -1,0 +1,25 @@
+name: Restore report
+on:
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/download-artifact@v5
+        with:
+          name: playwright-report
+          path: playwright-report
+          run-id: 43893370825
+          github-token: ${{ github.token }}
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: playwright-report/
+      - id: deployment
+        uses: actions/deploy-pages@v5
